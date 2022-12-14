@@ -1,0 +1,242 @@
+/*---------- Team ------------- */
+
+.drawer__wrapper {
+	overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+// Mixins
+@mixin image-circle($width) {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: $width;
+  height: $width;
+  width: $width;
+}
+
+.team-bkg {
+	background: url('../../assets/img/team-background.jpg') center repeat-y $lightest-gray;
+}
+
+@media (min-width: 0px) and (max-width: 1023px) {
+	.team-bkg {
+		background: $lightest-gray;
+	}
+}
+
+.team-container {
+	padding: 0;
+}
+
+.team-image {
+	text-align: center;
+	border-radius: 200px;
+	max-width: 180px;
+}
+
+@media (min-width: 0px) and (max-width: 1023px) {
+	.team-image {
+		@include image-circle(178px);
+		text-align: center;
+	}
+	
+	.team-program-office {
+		margin-bottom: 2rem;
+	}
+}
+
+
+.team-member-card {
+	
+	height: 100%;
+	
+	h3 {
+		text-transform: none;
+		margin-bottom: 0;
+		margin-top: 2rem;
+	}
+	
+	p.team-title {
+		font-family: $title-font;
+	}
+	
+	p.read-bio { 
+		font-size: 0.75rem;
+		margin-top: 1.25rem;
+		
+		a {
+			color: $red;
+			font-weight: 800;
+			text-transform: uppercase;
+			text-decoration: none;
+
+			&:hover {
+				color: $teal;
+				
+				.read-bio-icon {
+					color: $teal;
+				}
+			}
+		}
+		
+	}
+	
+	.read-bio-icon {
+		margin-left: .5rem;
+
+	}
+	
+}
+
+h3.team-program-goals {
+	margin-bottom: 30px;
+}
+
+.team-bio-drawer {
+	margin-top: -1.875rem;
+}
+
+.drawer__content {
+	
+	.drawer-image {
+		text-align: center;
+	}
+	
+	h3 {
+		text-transform: none;
+		border-bottom: solid 1px $teal;
+		padding-bottom: 1rem;
+		margin-top: 1rem;
+		margin-bottom: 2rem;
+	}
+	
+	.team-border {
+		border: none;
+		border-top: solid 1px $teal;
+	}
+	
+	.team-twitter {
+		text-transform: uppercase;
+		font-weight: 800 !important;
+		
+		a {
+			text-decoration: none;
+			color: $red;
+			
+			&:hover {
+				color: $teal;
+			}
+		}
+	}
+}
+
+.team-goals {
+	li {
+		font-weight: 300;
+		font-size: 1.25rem;
+	}
+	
+}
+
+/* Team Slider */
+
+.drawer {
+      display: none;
+    }
+    .drawer__overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+		height: 100%;
+      z-index: 200;
+      opacity: 0;
+		overflow-y: scroll;
+-webkit-overflow-scrolling: touch;
+      
+      transition: opacity 0.3s;
+      will-change: opacity;
+      background-color: #000;
+
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;      
+    }
+
+	.drawer__header {
+		padding: 1.5rem 1.5rem 0 1.5rem;
+		text-align: right;
+	}
+
+    .drawer__close {
+      margin: 0;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+		background-position: 0 10px;
+		background-repeat: no-repeat;
+      cursor: pointer;
+      background-image: url('../../assets/img/team-close.svg');
+      width: 45px;
+      height: 67px;
+      flex-shrink: 0;
+      margin-right: 1rem;
+		
+		&:hover {
+			background-image: url('../../assets/img/team-close-hover.svg');
+			background-color: transparent;
+		}
+    }
+
+    .drawer__wrapper {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      max-width: 500px;
+      z-index: 9999;
+      overflow: scroll;
+      
+      transition: transform 0.3s;
+      will-change: transform;
+      background-color: $lightest-gray;
+     
+      display: flex;
+      flex-direction: column; 
+      box-shadow: 0 2px 6px #777;
+    }
+
+    .drawer__content {
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: 100%;
+      flex-grow: 1;
+      padding: 1.5rem;
+    }
+
+    .drawer--left .drawer__wrapper {
+      left: 0;
+      right: auto;
+     -webkit-transform: translate3d(-100%, 0, 0);
+     transform: translate3d(-100%, 0, 0);
+    }
+
+    .drawer.is-active {
+      display: block;
+    }
+
+    .drawer.is-visible .drawer__wrapper {
+     -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    .drawer.is-visible .drawer__overlay {
+      opacity: 0.5;
+    }

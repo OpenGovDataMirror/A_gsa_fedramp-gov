@@ -1,0 +1,34 @@
+---
+layout: compress
+---
+
+<!doctype html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body class="{{ page.body-class }}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TT3D6BG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	  
+  <div class="usa-overlay"></div>
+
+    {% include header.html %}
+	
+      	<main id="main" tabindex="-1" class="" style="outline: 0px;">
+	<div class="page-banner-container">
+		<div class="page-banner">
+			<h1> {{ page.title }}</h1>
+		</div>
+	</div>
+      	{{ content }}
+			
+			<a id="topButton"></a>
+		</main>
+    {% include footer.html %}
+    {% include javascript.html %}
+ 	 
+ </body>
+</html>
